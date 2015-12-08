@@ -5,6 +5,13 @@ module Ruboty
 
       on /おやすみ/, name: 'greet', description: 'greet to ruboty'
 
+      def initialize(*args)
+        super
+        if room
+          trap_message(room)
+        end
+      end
+
       def greet(message)
         save(message)
         message.reply('まだ寝ないよ！')
@@ -14,10 +21,18 @@ module Ruboty
 
       def save(message)
         room = message
+        trap_message(message)
       end
 
       def room
         robot.brain.data[BRAIN_NAMESPACE]
+      end
+
+      def trap_message(message)
+        Signal.trap('TERM') do
+          message.reply('おやすみ〜')
+          Process.kill 'QUIT', Process.pid
+        end
       end
     end
   end
