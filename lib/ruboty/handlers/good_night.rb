@@ -13,7 +13,7 @@ module Ruboty
       private
 
       def save(message)
-        room = message.original.except(:robot)
+        room = message
       end
 
       def room
