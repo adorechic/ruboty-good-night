@@ -8,6 +8,7 @@ module Ruboty
       def initialize(*args)
         super
         if room
+          room.reply('おはようございます')
           trap_message(room)
         end
       end
