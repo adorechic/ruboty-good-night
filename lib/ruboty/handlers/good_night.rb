@@ -20,7 +20,7 @@ module Ruboty
       private
 
       def save(message)
-        room = message
+        robot.brain.data[BRAIN_NAMESPACE] = message
         trap_message(message)
       end
 
