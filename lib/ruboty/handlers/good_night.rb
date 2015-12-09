@@ -7,7 +7,7 @@ module Ruboty
 
       def initialize(*args)
         super
-        if room
+        if robot.brain.data[BRAIN_NAMESPACE]
           room.reply('おはようございます')
           trap_message(room)
         end
@@ -21,12 +21,12 @@ module Ruboty
       private
 
       def save(message)
-        robot.brain.data[BRAIN_NAMESPACE] = message
+        robot.brain.data[BRAIN_NAMESPACE] = message.original.except(:robot)
         trap_message(message)
       end
 
       def room
-        robot.brain.data[BRAIN_NAMESPACE]
+        Ruboty::Message.new(robot.brain.data[BRAIN_NAMESPACE].merge(robot: robot))
       end
 
       def trap_message(message)
