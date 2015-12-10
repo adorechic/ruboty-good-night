@@ -4,11 +4,14 @@ module Ruboty
       BRAIN_NAMESPACE = 'ruboty-goodnight'
 
       def adapt
-        super
-
         if brain.data[BRAIN_NAMESPACE]
-          room.reply('おはようございます')
+          Thread.new {
+            sleep 10
+            room.reply('おはようございます')
+          }
         end
+
+        super
       end
 
       def room
