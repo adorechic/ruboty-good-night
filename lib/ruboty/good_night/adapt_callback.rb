@@ -6,13 +6,13 @@ module Ruboty
       def adapt
         super
 
-        if robot.brain.data[BRAIN_NAMESPACE]
+        if brain.data[BRAIN_NAMESPACE]
           room.reply('おはようございます')
         end
       end
 
       def room
-        Ruboty::Message.new(robot.brain.data[BRAIN_NAMESPACE].merge(robot: robot))
+        Ruboty::Message.new(brain.data[BRAIN_NAMESPACE].merge(robot: self))
       end
     end
   end
