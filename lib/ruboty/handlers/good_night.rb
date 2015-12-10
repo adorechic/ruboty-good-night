@@ -8,7 +8,6 @@ module Ruboty
       def initialize(*args)
         super
         if robot.brain.data[BRAIN_NAMESPACE]
-          room.reply('おはようございます')
           trap_message(room)
         end
       end
