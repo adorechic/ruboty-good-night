@@ -1,28 +1,25 @@
-# Ruboty::Good::Night
+# ruboty-good-night
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/ruboty/good/night`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+This gem lets ruboty to say good morning when a process starts up, and to say good night when a process goes shutdown.
 
 ## Installation
 
 Add this line to your application's Gemfile:
 
 ```ruby
-gem 'ruboty-good-night'
+gem "ruboty-good-night", require: "ruboty/good_night"
 ```
 
 And then execute:
 
     $ bundle
 
-Or install it yourself as:
+## Setup
+Say good night to ruboty at first. Ruboty reminds a place where to say good night.
 
-    $ gem install ruboty-good-night
-
-## Usage
-
-TODO: Write usage instructions here
+```
+ruboty おやすみ
+```
 
 ## Development
 
@@ -38,4 +35,3 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/[USERN
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
